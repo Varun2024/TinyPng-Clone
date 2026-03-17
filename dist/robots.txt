@@ -1,0 +1,12 @@
+# CompressFlow robots.txt
+# Allow all search engines to crawl and index the site
+
+User-agent: *
+Allow: /
+Disallow: /.netlify/
+
+# Sitemap location
+Sitemap: https://compressflow.netlify.app/sitemap.xml
+
+# Crawl-delay to be respectful
+Crawl-delay: 1

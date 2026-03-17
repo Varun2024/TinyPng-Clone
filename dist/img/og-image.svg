@@ -1,0 +1,46 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background with gradient -->
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e7f2ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e8fff8;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f8bff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2eb66f;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <rect width="1200" height="630" fill="url(#bgGrad)"/>
+  
+  <!-- Decorative circles -->
+  <circle cx="100" cy="100" r="150" fill="#e6f3ff" opacity="0.6"/>
+  <circle cx="1100" cy="550" r="200" fill="#e8fff8" opacity="0.5"/>
+  
+  <!-- Main content -->
+  <g>
+    <!-- Icon area -->
+    <circle cx="150" cy="315" r="80" fill="url(#accentGrad)"/>
+    <text x="150" y="330" font-size="80" fill="white" text-anchor="middle" font-weight="bold">⊙</text>
+    
+    <!-- Heading -->
+    <text x="600" y="180" font-size="72" font-weight="700" fill="#0f172a" text-anchor="middle" font-family="DM Sans, sans-serif">
+      CompressFlow
+    </text>
+    
+    <!-- Subheading -->
+    <text x="600" y="280" font-size="48" font-weight="500" fill="#0f8bff" text-anchor="middle" font-family="DM Sans, sans-serif">
+      Instant Image Compression
+    </text>
+    
+    <!-- Description -->
+    <text x="600" y="380" font-size="32" fill="#64748b" text-anchor="middle" font-family="DM Sans, sans-serif">
+      PNG &amp; JPEG compression, online and free
+    </text>
+    
+    <!-- Features line -->
+    <text x="600" y="480" font-size="28" fill="#0f172a" text-anchor="middle" font-family="DM Sans, sans-serif">
+      🚀 Fast  •  📦 Lightweight  •  ✨ Free
+    </text>
+  </g>
+</svg>

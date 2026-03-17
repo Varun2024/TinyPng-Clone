@@ -3,9 +3,36 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CompressFlow</title>
+    <meta name="description" content="CompressFlow - Fast and free image compression for PNG and JPEG. Compress up to 20 images instantly with serverless processing and clear size savings." />
+    <meta name="keywords" content="image compression, PNG compression, JPEG compression, online image optimizer, free image compressor" />
+    <meta name="author" content="Varun" />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <meta name="theme-color" content="#0f8bff" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="CompressFlow - Instant Image Compression" />
+    <meta property="og:description" content="Compress PNG and JPEG images online for free. Fast serverless processing with clear size savings." />
+    <meta property="og:url" content="https://compressflow.netlify.app" />
+    <meta property="og:image" content="https://compressflow.netlify.app/img/og-image.svg" />
+    <meta property="og:image:alt" content="CompressFlow - Image Compression Tool" />
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="CompressFlow - Instant Image Compression" />
+    <meta name="twitter:description" content="Compress PNG and JPEG images online for free. Fast serverless processing with clear size savings." />
+    <meta name="twitter:image" content="https://compressflow.netlify.app/img/og-image.svg" />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://compressflow.netlify.app" />
+    
+    <!-- Additional Links -->
+    <link rel="sitemap" type="application/xml" href="https://compressflow.netlify.app/sitemap.xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="prefetch" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap"
       rel="stylesheet"
@@ -19,7 +46,65 @@
     />
     <link rel="icon" type="image/svg+xml" href="img/favicon.svg" />
     <link rel="stylesheet" href="css/style.css" />
+    
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "CompressFlow",
+      "description": "Fast and free image compression for PNG and JPEG",
+      "url": "https://compressflow.netlify.app",
+      "applicationCategory": "UtilityApplication",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Varun"
+      },
+      "image": "https://compressflow.netlify.app/img/favicon.svg"
+    }
+    </script>
+    
+    <!-- FAQSchema Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What image formats does CompressFlow support?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "CompressFlow supports PNG and JPEG image formats."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the file size limit?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You can compress up to 20 images at a time, with each image up to 4MB in size."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is CompressFlow free to use?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, CompressFlow is completely free to use with no hidden fees or registration required."
+          }
+        }
+      ]
+    }
+    </script>
+    
     <script src="js/script.js" type="module"></script>
+    <title>CompressFlow - Free Online Image Compression for PNG & JPEG</title>
   </head>
   <body>
     <main class="app-shell">
@@ -62,7 +147,7 @@
 
       <section class="droparea" aria-label="File drop zone" role="button" tabindex="0">
         <i class="fas fa-cloud-upload-alt" aria-hidden="true"></i>
-        <p class="droparea__title">Drag and drop images here</p>
+        <h2 class="droparea__title">Drag and drop images here</h2>
         <p class="droparea__meta">Up to 20 images, 4MB each, PNG and JPEG only</p>
         <label class="droparea__action" for="file_picker">Select files</label>
         <input
@@ -71,7 +156,11 @@
           type="file"
           accept="image/png,image/jpeg"
           multiple
+          aria-describedby="file-picker-help"
         />
+        <p id="file-picker-help" class="sr-only">
+          Choose PNG or JPEG images from your computer to compress. You can select multiple files at once.
+        </p>
       </section>
       <p id="upload_notice" class="upload-notice none" role="status" aria-live="polite"></p>
 
