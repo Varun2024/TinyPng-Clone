@@ -1,35 +1,9 @@
-const imageminModule = require("imagemin");
-const imageminJpegRecompress = require("imagemin-jpeg-recompress");
-const imageminPngquantModule = require("imagemin-pngquant");
-
-const imagemin = imageminModule.default || imageminModule;
-const imageminPngquant = imageminPngquantModule.default || imageminPngquantModule;
-
-const getPluginsForExtension = (extension) => {
-  const normalizedExtension = extension.toLowerCase();
-
-  if (normalizedExtension === "png") {
-    return [
-      imageminPngquant({
-        quality: [0.2, 0.6],
-      }),
-    ];
-  }
-
-  if (normalizedExtension === "jpg" || normalizedExtension === "jpeg") {
-    return [
-      imageminJpegRecompress({
-        min: 20,
-        max: 60,
-      }),
-    ];
-  }
-
-  return [];
-};
-
 exports.handler = async (event, context) => {
   try {
+    const { default: imagemin } = await import("imagemin");
+    const { default: imageminJpegRecompress } = await import("imagemin-jpeg-recompress");
+    const { default: imageminPngquant } = await import("imagemin-pngquant");
+
     if (!event.body) {
       return {
         statusCode: 400,
@@ -47,24 +21,27 @@ exports.handler = async (event, context) => {
       };
     }
 
-    const plugins = getPluginsForExtension(extensions);
-    if (plugins.length === 0) {
+    const normalizedExtension = extensions.toLowerCase();
+
+    let plugins;
+    if (normalizedExtension === "png") {
+      plugins = [imageminPngquant({ quality: [0.2, 0.6] })];
+    } else if (normalizedExtension === "jpg" || normalizedExtension === "jpeg") {
+      plugins = [imageminJpegRecompress({ min: 20, max: 60 })];
+    } else {
       return {
         statusCode: 400,
         body: JSON.stringify({ error: "Unsupported file format." }),
       };
     }
 
-    const normalizedExtension = extensions.toLowerCase();
     const base64Image = base64String.split(";base64,").pop();
     const filename = `${name}.${normalizedExtension}`;
     const result = Buffer.from(base64Image, "base64");
-    const newImgBuffer = await imagemin.buffer(result, {
-      plugins,
-    });
+    const newImgBuffer = await imagemin.buffer(result, { plugins });
 
     const filesize = newImgBuffer.length;
-    const base64CompString = `${newImgBuffer.toString("base64")}`;
+    const base64CompString = newImgBuffer.toString("base64");
     const imageDataObj = { base64CompString, filename, filesize };
     return {
       statusCode: 200,
