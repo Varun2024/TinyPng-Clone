@@ -1,0 +1,26 @@
+{
+  "name": "tinypng-clone",
+  "version": "1.0.0",
+  "description": "��#\u0000 \u0000T\u0000i\u0000n\u0000y\u0000P\u0000n\u0000g\u0000-\u0000C\u0000l\u0000o\u0000n\u0000e\u0000\r\u0000 \u0000",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Varun2024/TinyPng-Clone.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Varun2024/TinyPng-Clone/issues"
+  },
+  "homepage": "https://github.com/Varun2024/TinyPng-Clone#readme",
+  "dependencies": {
+    "imagemin": "^9.0.1",
+    "imagemin-jpeg-recompress": "^7.1.0",
+    "imagemin-pngquant": "^10.0.0"
+  }
+}
