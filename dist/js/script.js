@@ -1,6 +1,6 @@
 import Counter from "./Counter.js";
 const counter = new Counter();
-const MAX_UPLOAD_MB = 4.2;
+const MAX_UPLOAD_MB = 3.5;
 const MAX_FILES = 20;
 const uploadNotice = document.getElementById("upload_notice");
 
